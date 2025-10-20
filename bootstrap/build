@@ -1,4 +1,4 @@
 #!/bin/sh -e
 
-#copy local repo to bootstrap
-cp -r /repo/sauzeros $1/
+install -d $1/repo/sauzeros/
+cp -r * $1/repo/sauzeros/
