@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+#copy local repo to bootstrap
+cp -r /repo/sauzeros $1/

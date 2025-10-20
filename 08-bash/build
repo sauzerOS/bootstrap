@@ -1,0 +1,10 @@
+#!/bin/sh -e
+
+./configure --prefix=/usr                      \
+            --build=$(sh support/config.guess) \
+            --host=$LFS_TGT                    \
+            --without-bash-malloc
+
+make
+make DESTDIR=$1 install
+ln -sv bash $1/usr/bin/sh
