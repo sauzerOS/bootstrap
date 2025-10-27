@@ -1,3 +1,0 @@
-#!/bin/sh
-
-install -Dm755 su $1/bin/su
