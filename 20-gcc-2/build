@@ -1,6 +1,4 @@
 #!/bin/sh -e
-set +h
-umask 022
 
 sed -e '/m64=/s/lib64/lib/' \
     -e '/m32=/s/m32=.*/m32=..\/lib32$(call if_multiarch,:i386-linux-gnu)/' \

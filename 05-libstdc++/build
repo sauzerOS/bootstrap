@@ -1,8 +1,6 @@
 #!/bin/sh -e
 VERSION=$(awk '{print $1}' "$(dirname "$0")/version")
 export VERSION
-set +h
-umask 022
 
 mkdir build
 cd build

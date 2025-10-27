@@ -1,6 +1,4 @@
 #!/bin/sh -e
-set +h
-umask 022
 
 mkdir build
 cd build

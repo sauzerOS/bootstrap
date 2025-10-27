@@ -1,6 +1,4 @@
 #!/bin/sh -e
-set +h
-umask 022
 
 # change default dir name for libs
 sed -e '/m64=/s/lib64/lib/' \
