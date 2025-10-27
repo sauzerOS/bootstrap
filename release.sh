@@ -1,4 +1,10 @@
-#!/bin/sh
+#!/bin/sh -e
+
+# Ensure rsync is available
+if ! command -v rsync >/dev/null 2>&1; then
+    echo "Error: rsync not found in PATH" >&2
+    exit 1
+fi
 
 REPO_PATH="/repo/bootstrap"
 ARCHIVE_NAME="/tmp/bootstrap-repo.tar.xz"
