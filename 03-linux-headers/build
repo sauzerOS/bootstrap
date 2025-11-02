@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-make mrproper
 make headers
-find usr/include -type f ! -name '*.h' -delete
-cp -rv usr $1/
+find usr/include -name \*.h -type f | while read -r file; do
+    install -Dm644 "$file" "$1/$file"
+done

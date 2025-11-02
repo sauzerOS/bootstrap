@@ -3,7 +3,8 @@
 mkdir build
 cd build
 
-echo "rootsbindir=/usr/sbin" > configparms
+echo "rootsbindir=/usr/bin" >> configparms
+echo "sbindir=/usr/bin" >> configparms
 ../configure                             \
       --prefix=/usr                      \
       --host=$LFS_TGT                    \
@@ -39,5 +40,5 @@ cp -a DESTDIR/usr/lib32 $1/usr/
 install -vm644 DESTDIR/usr/include/gnu/{lib-names,stubs}-32.h \
                $1/usr/include/gnu/
 
-install -d $1/lib
-ln -svf ../lib32/ld-linux.so.2 $1/lib/ld-linux.so.2
+install -d $1/usr/lib
+ln -svf ../lib32/ld-linux.so.2 $1/usr/lib/ld-linux.so.2
