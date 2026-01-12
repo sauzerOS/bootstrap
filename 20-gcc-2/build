@@ -12,6 +12,13 @@ sed '/thread_header =/s/@.*@/gthr-posix.h/' \
 mkdir -v build
 cd       build
 mlist=m64,m32
+
+if [ "$MULTILIB" = "1" ]; then
+    multilib_opts="--enable-multilib --with-multilib-list=$mlist"
+else
+    multilib_opts="--disable-multilib"
+fi
+
 ../configure                                       \
     --build=$(../config.guess)                     \
     --host=$LFS_TGT                                \
@@ -21,7 +28,7 @@ mlist=m64,m32
     --enable-default-pie                           \
     --enable-default-ssp                           \
     --disable-nls                                  \
-    --enable-multilib --with-multilib-list=$mlist  \
+    $multilib_opts                                 \
     --disable-libatomic                            \
     --disable-libgomp                              \
     --disable-libquadmath                          \

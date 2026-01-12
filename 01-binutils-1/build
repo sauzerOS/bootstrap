@@ -14,3 +14,5 @@ cd build
 
 make
 make DESTDIR=$1 install
+
+rm $1/tools/usr/share/info/dir

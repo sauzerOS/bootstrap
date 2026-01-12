@@ -18,6 +18,7 @@ make DESTDIR=$1 install
 
 sed '/RTLDLIST=/s@/usr@@g' -i $1/usr/bin/ldd
 
+if [ "$MULTILIB" = "1" ]; then
 #32bit
 make clean
 find .. -name "*.a" -delete
@@ -42,3 +43,5 @@ install -vm644 DESTDIR/usr/include/gnu/{lib-names,stubs}-32.h \
 
 install -d $1/usr/lib
 ln -svf ../lib32/ld-linux.so.2 $1/usr/lib/ld-linux.so.2
+fi
+

@@ -28,6 +28,8 @@ ln -sv libncursesw.so $1/usr/lib/libncurses.so
 sed -e 's/^#if.*XOPEN.*$/#if 1/' \
     -i $1/usr/include/curses.h
 
+
+if [ "$MULTILIB" = "1" ]; then
 #32bit
 make distclean
 CC="$LFS_TGT-gcc -m32"              \
@@ -48,3 +50,4 @@ make DESTDIR=$PWD/DESTDIR TIC_PATH=$(pwd)/build/progs/tic install
 ln -sv libncursesw.so DESTDIR/usr/lib32/libncurses.so
 install -d $1/usr/lib32
 cp -Rv DESTDIR/usr/lib32/* $1/usr/lib32
+fi

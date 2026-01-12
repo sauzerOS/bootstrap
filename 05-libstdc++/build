@@ -2,6 +2,12 @@
 VERSION=$(awk '{print $1}' "$(dirname "$0")/version")
 export VERSION
 
+if [ "$MULTILIB" = "1" ]; then
+    multilib_opt="--enable-multilib"
+else
+    multilib_opt="--disable-multilib"
+fi
+
 mkdir build
 cd build
 
@@ -9,7 +15,7 @@ cd build
     --host=$LFS_TGT                 \
     --build=$(../config.guess)      \
     --prefix=/usr                   \
-    --enable-multilib               \
+    $multilib_opt                   \
     --disable-nls                   \
     --disable-libstdcxx-pch         \
     --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/$VERSION
@@ -17,4 +23,4 @@ cd build
 make
 make DESTDIR=$1 install
 
-rm -v $1/usr/lib/lib{stdc++{,exp,fs},supc++}.la
+rm -fv $1/usr/lib/lib{stdc++{,exp,fs},supc++}.la

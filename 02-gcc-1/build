@@ -13,6 +13,13 @@ mkdir -v build
 cd       build
 
 mlist=m64,m32
+
+if [ "$MULTILIB" = "1" ]; then
+    multilib_opts="--enable-multilib --with-multilib-list=$mlist"
+else
+    multilib_opts="--disable-multilib"
+fi
+
 ../configure                                       \
     --target=$LFS_TGT                              \
     --prefix=/tools                                \
@@ -25,7 +32,7 @@ mlist=m64,m32
     --enable-initfini-array                        \
     --disable-nls                                  \
     --disable-shared                               \
-    --enable-multilib --with-multilib-list=$mlist  \
+    $multilib_opts                                 \
     --disable-decimal-float                        \
     --disable-threads                              \
     --disable-libatomic                            \
