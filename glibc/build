@@ -38,7 +38,8 @@ CXX="$LFS_TGT-g++ -m32" \
 make
 make DESTDIR=$PWD/DESTDIR install
 cp -a DESTDIR/usr/lib32 $1/usr/
-install -vm644 DESTDIR/usr/include/gnu/{lib-names,stubs}-32.h \
+install -vm644 DESTDIR/usr/include/gnu/lib-names-32.h \
+               DESTDIR/usr/include/gnu/stubs-32.h \
                $1/usr/include/gnu/
 
 install -d $1/usr/lib
