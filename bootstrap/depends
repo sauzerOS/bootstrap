@@ -22,4 +22,4 @@ findutils
 21-hokuto
 nano
 bzip2
-make-ca
+ca-certificates
