@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+install -d $1/etc
+cp -r ssl $1/etc
