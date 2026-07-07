@@ -1,4 +1,1 @@
 #!/bin/sh -e
-
-install -d $1/repo/sauzeros/
-cp -r * $1/repo/sauzeros/
