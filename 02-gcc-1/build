@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 # change default dir name for libs
 sed -e '/m64=/s/lib64/lib/' \

@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 sed '6031s/$add_dir//' -i ltmain.sh
 mkdir build

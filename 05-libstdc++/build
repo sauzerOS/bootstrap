@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 VERSION=$(awk '{print $1}' "$(dirname "$0")/version")
 export VERSION
 
